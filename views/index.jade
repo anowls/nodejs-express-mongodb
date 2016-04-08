@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1.text-center 知识点
+        sup.sup 重要
+    div(class='col-md-8 col-md-offset-2')
+        form(method="post" action="/add" class="form-horizontal")
+            div.form-group
+                label(class="control-label col-md-2") content&nbsp;
+                div.col-md-9
+                    input(name="content" class="form-control")
+            div.form-group
+                label(class="control-label col-md-2") effect&nbsp;
+                div.col-md-9
+                    textarea(name="effect" class="form-control")
+            div.form-group
+                label(class="control-label col-md-2") pratice&nbsp;
+                div.col-md-9
+                    textarea(name="practice" class="form-control")
+            div.form-group
+                label(class="control-label col-md-2") experience&nbsp;
+                div.col-md-9
+                    textarea(name="experience" class="form-control")
+            div.text-center
+                button(type="submit" class="btn btn-default") submit
