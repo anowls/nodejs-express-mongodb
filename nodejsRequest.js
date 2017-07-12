@@ -8,46 +8,46 @@
  */
 
 //http模块发送http:
-var http = require("http")
+let http = require('http')
 
-var options = {
-    protocol : "http",
-    hostname : "localhost",
-    method : "GET",
-    port : "80",
-    path : "/admin.php",
-    //host : "localhost",
-    //localAddress : "",
-    //socketPath : "",
-    //headers : { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-    //family : "",
-    //auth : "",
-    //agent : "",
+let options = {
+    protocol: 'http',
+    hostname: 'localhost',
+    method: 'GET',
+    port: '80',
+    path: '/admin.php',
+    //host : 'localhost',
+    //localAddress : '',
+    //socketPath : '',
+    //headers : { 'Content-Type': 'application/x-www-form-urlencoded charset=UTF-8' },
+    //family : '',
+    //auth : '',
+    //agent : '',
 }
 
-var req = http.request(options,function(response){
-    response.setEncoding('utf8');
-    console.log('status: ' + response.statusCode);
-    console.log('headers: ' + JSON.stringify(response.headers));
+let req = http.request(options, function (response) {
+    response.setEncoding('utf8')
+    console.log('status: ' + response.statusCode)
+    console.log('headers: ' + JSON.stringify(response.headers))
     response.on('data', function (chunk) {
-        console.log('BODY: ' + chunk);
-    });
+        console.log('BODY: ' + chunk)
+    })
 
-    res.on('end', function(){
+    res.on('end', function () {
         console.log('No more data in response.')
     })
 })
 
 req.on('error', function (e) {
-    console.log('problem with request: ' + e.message);
-});
+    console.log('problem with request: ' + e.message)
+})
 
 req.end()
 
 //request模块发送http:
-var request = require('request');
-request("http://localhost:80/admin.php", function (error, response, body) {
-    if (!error && response.statusCode == 200) {
+let request = require('request')
+request('http://localhost:80/admin.php', function (error, response, body) {
+    if (!error && response.statusCode === 200) {
         console.log(body)
     }
 })
